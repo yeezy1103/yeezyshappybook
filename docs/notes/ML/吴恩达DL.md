@@ -1,10 +1,20 @@
 # 吴恩达深度学习
 
-## 0.1 signal
+## 0.1 notation
 
-| signal |    meaning     |
-| :----: | :------------: |
-|   m    | Amount of data |
+a useful convention would be to take the data associated with different training examples
+
+|                     notation                     |                           meaning                            |
+| :----------------------------------------------: | :----------------------------------------------------------: |
+|                       $m$                        |               Amount of data/training example                |
+|                  $n_{x}$ or $n$                  |                   输入的特征向量$x$的维度                    |
+| $(x,y),x \in \mathbb{R}^{n_{x}}, y \in \{0,1\} $ |   一个样本，$x$是$n_{x}$维的特征向量，标签$y$值为$0$或$1$    |
+|     $(x^{(i)},y^{(i)})...(x^{(m)},y^{(m)})$      |                第$i$个样本 和 最后一个个样本                 |
+|                 $m = m_{train}$                  |                训练集的样本数 #train example                 |
+|                  $m = m_{test}$                  |                 测试集的样本数 #test example                 |
+|       $X = [x^{(1)},x^{(2)},...,x^{(m)}]$        | $X \in \mathbb{R}^{n_{x} \times m}$<br />这是一个$m$列，$n_{x}$行的矩阵，表示所有的训练集（列向量堆叠）的输入形式 |
+|       $Y = [y^{(1)},y^{(2)},...,y^{(m)}]$        | $X \in \mathbb{R}^{1 \times m}$<br />这是一个$m$列，$1$行的矩阵，表示输出标签 |
+|                       w:=                        |                            更新w                             |
 
 
 
@@ -22,7 +32,7 @@ Courses in this sequence (Specialization微专业) :
 4. Convolutional Neural Networks 卷积神经网络（CNNs）
 5. Natural Language Processing (NLP) : Building sequence models 自然语言处理：序列模型
 
-## 1. Neural Networks and Deep Learning 神经网络和深度学习
+## 1. Introduction
 
 1. Week 1 :    Introduction
 2. Week 2 :    Basics of Neural Network programming 神经网络编程框架
@@ -35,7 +45,7 @@ Courses in this sequence (Specialization微专业) :
 
 由图可得，通过==神经元==可以从输入x到输出y。
 
-<img src="/Users/yeezy/yeezyshappybook/docs/notes/ML/pic/1.2_housing-price-prdiction.png" alt="1.2_housing-price-prdiction" style="zoom:33%;" />
+<img src="pic/1.2_housing-price-prdiction.png" alt="1.2_housing-price-prdiction" style="zoom:33%;" />
 
 ### 1.2 Supervised Leaning in Neural Network
 
@@ -61,7 +71,7 @@ Different NN types are used for different problems:
 
 - 讨论深度学习崛起别后的一些主要驱动因素
 
-<img src="/Users/yeezy/yeezyshappybook/docs/notes/ML/pic/1.4.Scale drives deep learning progress.png" alt="1.4.Scale drives deep learning progress" style="zoom:33%;" />
+<img src="pic/1.4.Scale drives deep learning progress.png" alt="1.4.Scale drives deep learning progress" style="zoom:33%;" />
 
 - 传统学习算法
   - 支持向量机 support vector machine
@@ -188,3 +198,100 @@ False
 > - Decreasing the training set size generally does not hurt an algorithm's performance, and it may help significantly.
 >
 > - Increasing the size of a neural network generally does not hurt an algorithm's performance, and it may help significantly.😄
+
+## 2. Basics of Neural Network programming 神经网络编程的基础知识
+
+### 2.1 Binary Classification
+
+**Logistic regression** is an algorithm for binary classification.
+
+In binary classification, our goal is to learn a **classifier**【分类器】.
+
+- 构造神经网络时，用列向量堆叠，会让构建过程much easier
+
+### 2.2 Logistic Regression
+
+这是一个用在**输出y标签是0或1的监督学习问题**上的学习算法。
+
+> 也就是二元分类问题
+
+![2.2 Logistic Regression&sigmod function](pic/2.2 Logistic Regression&sigmod function.jpeg)
+
+
+
+- 给出$X$， 我们想要获得$\hat{y} = P(y=1|x)$，即输出为$y$的概率。
+
+$$
+x \in \mathbb{R}^{n_{x}},且 \hat{y} \in [0,1]
+$$
+
+- 参数：
+
+$$
+w \in \mathbb{R}^{n_{x}}, b \in R
+$$
+
+
+
+- 输出：
+
+因为$\hat{y} \in [0,1]$，所以才要==加上sigmod函数==。$w^{T}x + b$的取值范围太大了，是$(-\infty,+\infty)$
+$$
+\hat{y} = \sigma(w^{T}x + b), where \, \sigma(z) = \frac{1}{1+e^{-z}}
+$$
+
+
+- 目的：
+
+不断地调整两个参数，使得==损失函数==最小。
+
+
+
+### 2.3 Logistic Regression loss function and cost function 
+
+```
+!!! note
+Lost function【损失函数】 是在单个训练样本中定义的，它衡量了在单个训练样本上的表现，是一个凸函数
+Cost function【成本函数】 是针对所有训练样本的，它衡量了在全体训练样本上的表现，是一个凸函数
+```
+
+
+
+![2.3 Logistic Regression cost function](pic/2.3 Logistic Regression cost function.jpeg)
+
+**成本函数被定义为平均值，即1/m 的损失函数之和**
+
+> - 目标
+>   - loss function 尽量的小
+>     - 当标签y = 1，我们需要 $\hat{y}$尽量的大
+>     - 当标签y = 0，我们需要 $\hat{y}$尽量的小
+>     - 正好符合我们的直觉
+>   - cost function 尽量的小
+
+### 2.4 Gradient Descent
+
+用梯度下降法去训练或学习训练集上的参数 $w$ 和 $b$
+
+- 从初始点开始朝最陡的下坡方向走一步-------即梯度下降一步-------即迭代一次
+  - $w := w - \alpha \frac{d J(w,b)}{dw}$
+    - 代码：$w := w - \alpha dw$
+  - $b := b - \alpha \frac{d J(w,b)}{db}$
+    - 代码：$b := b - \alpha db$
+  - $\alpha$是学习率，和更新的每一步的步长有关系
+- 不断下降，很有希望收敛到全局最优解
+
+![2.4 Gradient Descent](pic/2.4 Gradient Descent.jpeg)
+
+
+
+### 2.5 Derivatives
+
+```
+!!! note
+对微积分和导数有直观的理解
+```
+
+
+
+
+
