@@ -1,4 +1,4 @@
-# Introduction
+# AndrewNg-DL-Course1-Week1
 
 1. Week 1 :    Introduction
 2. Week 2 :    Basics of Neural Network programming 神经网络编程框架
@@ -19,9 +19,7 @@
 
 ### NN types
 
-<img src="https://vitalflux.com/wp-content/uploads/2021/11/deep-neural-network-examples.png" alt="avatar" style="zoom:33%;" />
-
-Different NN types are used for different problems:
+![1.1.1](pic/1.1.1.png)Different NN types are used for different problems:
 
 <img src="https://x-wei.github.io/images/Ng_DLMooc_c1wk1/pasted_image002.png" alt="avatar" style="zoom:33%;" />
 

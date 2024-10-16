@@ -1,0 +1,68 @@
+- versus
+  - between statements expressiong what is real versus what is merely possible
+  - sth. Versus sth. 某事相比于某事
+- deceptive
+  - the case with deceptive advertisements
+  - 欺骗性的
+    - deceive (v.)
+- robust
+  - In a robust fashion 
+  - strong and healthy
+    - of an object
+    - Of a process, system, organization:able to **withstand** or overcome adverse conditions
+    - uncompromising and forceful
+  - Of wine of food 浓烈的味道
+- factual
+  - 事实的
+  - Factuality事实
+  - Factualness事实
+- aggravate
+- ascertain
+  - The scientists intended to ascertain how the brain computes possibilities as expressed by words such as "may,""might,""if."
+  - ascertainable
+- deliberate
+  - Some of this is **deliberate**, as is the case with **deceptive** advertisements, but the problem is **aggravated** by individuals who believe they are sharing correct information.
+  - Adj
+  - v
+
+- **differentiate**
+- **indifferent**
+- disourse
+- prolong
+- evoke
+- inhibit
+- manuscript
+  - written by hand rather than typed or printed
+- marvel
+- remnant
+- scenario
+- speculative
+  - It is more important than ever to ==separate== the **factual** ==from== the possible or merely **speculative** in how we communicate.
+- **unanimous**
+- Cruise
+  - It's home to the second-busiest cruise ship port in the world and is a gateway to the **cosmos**.
+- flock
+  - Nearly 1.5 million visitors **flock** here every year to watch rockets, and satellites **blast off** into the solar system.
+  
+- Refuge
+
+- wedege
+  - Wedge under the sea's surface in mud and sand
+- Vessel
+  - They are vessel built for war and commerce
+- cannon
+- canoe
+  - from old canoes to the Titanic
+- Chest
+  - Chests of jewels
+- Porcelain
+- Marine
+  - tell that to the marines
+
+- stake
+- pit
+- Vicious
+- Accusation
+  - High-stake fights over shipwrecks pit archaeologists against treasure hunters in a vicious cycle of accusations.
+- expedition
+  - dragging sensors from their expedition vessels back and forth, day in and day out, year after year

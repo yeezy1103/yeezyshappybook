@@ -1,6 +1,10 @@
-# Basics of Neural Network programming 
 
-​																											神经网络编程的基础知识
+
+# AndrewNg-DL-Course1-Week2
+
+Basics of Neural Network programming 
+
+神经网络编程的基础知识
 
 ## 2.1 Binary Classification
 
